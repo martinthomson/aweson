@@ -53,7 +53,9 @@ since unquoted strings are a little indiscriminate
 
 ## Arrays
 
-Arrays are the only complex type in AWESON.  Elements of arrays are both ordered (I'd like to see you invent a serialization format that didn't order elements of anything) and named.  Indexes start
+Arrays are the only complex type in AWESON.  Elements of arrays are both ordered (I'd like to see you invent a serialization format that didn't order elements of anything) and named.
+
+If you are accessing array elements using indexes, these start at whatever number your library decides to use.
 
 Arrays start and end with two (two == more AWESON) angle brackets.
 
@@ -101,7 +103,6 @@ You can use comments and whitespace in names too.
 
 ```
 << <alice "not alice again!"> some value >>
-```
 ```
 
 # FAQ
