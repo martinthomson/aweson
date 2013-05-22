@@ -4,9 +4,9 @@ array = "<<" *name-value-pair ">>"
 name-value-pair = whitespace [ "<" name ] ">" value
 name = whitespace (bare-string / quoted-string) whitespace
 
-bare-string = [ unreserved not-bracket-or-comment ]
-unreserved = %x00-21 / %x23-38 / %x3a-5f / %x61 / %x63-10ffff
-not-bracket = %x00-21 / %x23-5f / %x61 / %x63-10ffff
+bare-string = [ bare-string-start *bare-string-char ]
+bare-string-start = %x00-21 / %x23-38 / %x3a-5f / %x61 / %x63-10ffff
+bare-string-char = unreserved / "'"
 
 quoted-string = single-quote not-single-quote single-quote *(whitespace quoted)
 single-quote = "'"
