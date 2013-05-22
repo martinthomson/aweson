@@ -14,6 +14,8 @@ See, easy as pie.
 
 # AWESON Format
 
+AWESON has [ABNF](https://github.com/martinthomson/aweson/blob/master/aweson.abnf).
+
 AWESON has two basic types: strings and arrays.
 
 ## Strings
