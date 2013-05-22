@@ -1,0 +1,17 @@
+value = whitespace (bare-string / quoted-string / array) whitespace
+
+array = "<<" *name-value-pair ">>"
+name-value-pair = whitespace [ "<" name ] ">" value
+name = whitespace (bare-string / quoted-string) whitespace
+
+bare-string = [ unreserved not-bracket-or-comment ]
+unreserved = %x00-21 / %x23-38 / %x3a-5f / %x61 / %x63-10ffff
+not-bracket = %x00-21 / %x23-5f / %x61 / %x63-10ffff
+
+quoted-string = single-quote not-single-quote single-quote *(whitespace quoted)
+single-quote = "'"
+not-single-quote = %x00-38 / %x3a-10ffff / "''"
+
+whitespace = *(WSP / CR / LF / comment)
+comment = DQUOTE not-dquote DQUOTE
+not-dquote = %x00-21 / %x23-10ffff
