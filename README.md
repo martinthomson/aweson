@@ -12,11 +12,11 @@ This is an AWESON document!
 
 See, easy as pie.
 
-# AWESON Types
+# AWESON Format
 
 AWESON has two basic types: strings and arrays.
 
-## AWESON Strings
+## Strings
 
 A string can include any unicode character.  AWESON is always UTF-8 encoded.
 
