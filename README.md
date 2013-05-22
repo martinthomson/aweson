@@ -31,7 +31,7 @@ The only restriction is that you don't use one of our reserved characters in an 
 You can quote strings using a single quote `'` character, one at the start, another at the end.  Within a string, two single quotes in a row are replaced by a single quote.  Other AWESON characters are just fine.
 
 ```
-'Don''t fear the quoted string.  Even if it has AWESON characters <>"'''
+'Don''t worry, a quoted string can include AWESON characters: <>"'''
 ```
 
 Strings that appear next to each other separated by whitespace are concatenated.
@@ -46,7 +46,7 @@ This includes unquoted strings.
 ```
 'which only makes sense'
 for the very last string of the set
-since unquoted strings consume everything
+since unquoted strings are a little indiscriminate
 ```
 
 ## Arrays
@@ -55,7 +55,7 @@ Arrays are the only complex type in AWESON.  Elements of arrays are both ordered
 
 Arrays start and end with two (two == more AWESON) angle brackets.
 
-Names for elements are enclosed in one set of angle brackets.  Names are strings.
+Names for elements are enclosed in a single pair of angle brackets.  Names are strings.
 
 A simple array with three elements called `a`, `b`, and `c` looks like:
 
@@ -71,9 +71,14 @@ Naming elements is optional, just drop the opening angle bracket and you don't h
 
 ```
 <<
-> First value
-> 2nd > The 3rd and final value
+> First value > 2nd > third
 >>
+```
+
+Of course, array values can be arrays, so it's turtles all the way down.
+
+```
+<<><<><<>>><<><<><<>>>>>><<>>>>><<>>>>>
 ```
 
 ## Whitespace
@@ -82,25 +87,34 @@ AWESON ignores space, tab and new line characters if they appear at the start or
 
 ## Comments
 
-JSON doesn't.  Just put stuff into your whitespace.  Use double quotes (`"`) to mark the start and end of a comment.
+Just put stuff into your whitespace using double quotes (`"`) to mark the start and end of a comment.
 
 ```
 "this is a comment" this is a value "and this is another comment"
 ```
 
+The trick to note here is that a comment terminates an unquoted string, safely.
+
+You can use comments and whitespace in names too.
+
+```
+<< <alice "not alice again!"> some value >>
+```
+```
+
 # FAQ
 
-Q: Why invent another serialization format?
+Q: Why invent another serialization format?<br/>
 A: Why not?
 
-Q: What about numbers?
-A: Learn to love `parseInt()` (or your number parser of choice).  One reason we didn't specify a numeric format is that we don't need to worry about conventions like what radix your number system uses.
+Q: What about numbers?<br/>
+A: Learn to love `parseInt()` (or your number parser of choice).  One reason we didn't specify a numeric format is that we don't need to worry about conventions like what radix your number system uses.  Parsers also don't have to worry about how many bits to use in representing your stinking numbers.
 
-Q: How do I represent a null value?
+Q: How do I represent a null value?<br/>
 A: Don't.
 
-Q: Why is this better than JSON again?
-A: Fewer types.  The syntax is easier to type.
+Q: Why is this better than JSON again?<br/>
+A: Fewer types.  The syntax is easier to type.  Comments.
 
-Q: Your braces don't match!
+Q: Your braces don't match!<br/>
 A: Oh, you mean the whole optional name thing?  Get over it.
