@@ -28,7 +28,7 @@ The easy way to create a strings is to just include the string.  Any whitespace 
 This is an example string, and a valid document.
 ```
 
-The only restriction is that you don't use one of our reserved characters in an unquoted string.  These are `'`, `<`, >`, and `"`.  (Well, a single quote is ok, if it's not the first character.)
+The only restriction is that you don't use one of our reserved characters in an unquoted string.  These are `'`, `<`, `>`, and `"`.  (Well, a single quote is ok, if it's not the first character.)
 
 You can quote strings using a single quote `'` character, one at the start, another at the end.  Within a string, two single quotes in a row are replaced by a single quote.  Other AWESON characters are just fine.
 
