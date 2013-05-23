@@ -1,5 +1,19 @@
 {
     "name" : "aweson",
-    "version" : "1.0",
-    "main" : "./aweson.js"
+    "version" : "1.0.0",
+    "description" : "This is AWESON!!!  AWESON > JSON",
+    "keywords" : [ "JSON", "AWESON", "awesome" ],
+    "homepage" : "https://github.com/martinthomson/aweson",
+    "bugs" : "https://github.com/martinthomson/aweson/issues",
+    "license" : "BSD",
+    "author" : {
+        "name" : "Martin Thomson",
+        "email" : "martin.thomson@gmail.com"
+    },
+    "main" : "./aweson.js",
+    "repository" : {
+        "type" : "git",
+        "url" : "https://github.com/martinthomson/aweson.git"
+    },
+    "engines" : { "node" : ">=0.6.0" }
 }
