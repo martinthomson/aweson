@@ -1,17 +1,20 @@
 'use strict';
 require('./aweson.js'); /*global AWESON*/
 
-function stringify(input) {
+function test(input) {
 	console.log('INPUT>>', input);
-	console.log('OUTPUT>>', AWESON.stringify(input));
+	var str = AWESON.stringify(input);
+	console.log('  AWESON>>', str);
+	var output = AWESON.parse(str);
+	console.log('  PARSED>>', output);
 }
 
-stringify('Hello World!');
-stringify('\'With a quote at the start');
-stringify('Double quotes "');
-stringify('Angles <>');
-stringify(123);
-stringify(1e40);
-stringify([1,2,3]);
-stringify({a: 1, b: 2, c: 3});
-stringify({a: [], b: 1, c: ''});
+test('Hello World!');
+test('\'With a quote at the start');
+test('Double quotes "');
+test('Angles <>');
+test(123);
+test(1e40);
+test([1,2,3]);
+test({a: 1, b: 2, c: 3});
+test({a: [], b: 1, c: ''});
