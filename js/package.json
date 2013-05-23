@@ -1,0 +1,5 @@
+{
+    "name" : "aweson",
+    "version" : "1.0",
+    "main" : "./aweson.js"
+}
