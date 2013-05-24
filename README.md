@@ -12,6 +12,14 @@ This is an AWESON document!
 
 See, easy as pie.
 
+# AWESON Javascript
+
+We have a reference implementation in JavaScript.  Get it.
+
+```
+npm install aweson
+```
+
 # AWESON Format
 
 AWESON has [ABNF](https://github.com/martinthomson/aweson/blob/master/aweson.abnf).
