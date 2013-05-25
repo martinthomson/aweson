@@ -216,15 +216,11 @@
 		return e === 'name' || e === 'value';
 	}
 
-	function isKeyValue(e) {
-		return (typeof e.value !== 'undefined') && Object.keys(e).every(isNameOrValue);
-	}
-
 	function objectToAweson(obj) {
 		if (Array.isArray(obj)) {
 			// special AWESON array
-			if (obj.every(isKeyValue)) {
-				return obj.map(function(e) {
+			if (typeof obj.aweson == 'object') {
+				return obj.aweson.map(function(e) {
 					var n = ' ';
 					if (typeof e.name === 'string') {
 						n += '<' + e.name;

@@ -29,7 +29,6 @@ stringify(1e40, '1e+40');
 stringify([1, 2, 3], '<< >1 >2 >3 >>');
 stringify({ a: 1, b: 2, c: 3 }, '<< <a>1 <b>2 <c>3 >>');
 stringify({ a: [], b: 1, c: '' }, '<< <a><< >> <b>1 <c> >>');
-stringify([ { value: 2 }, { name: 'n', value: 3 } ], '<< >2 <n>3 >>');
 
 function cant(input) {
 	try {
@@ -56,11 +55,14 @@ function parse(input, output) {
 
 parse('<<>>', '<< >>');
 parse('\'string\'', 'string');
-parse('\'a\'\n\'b\'', 'ab');
-parse('a "comment" b', 'ab');
-parse('a "comment" \' b\' c', 'a bc');
-parse('<<<"c"\'a\'"c">"c"value"c">>', '<< <a>value >>');
 parse('<< >1 >2 >3 >>', '<< >1 >2 >3 >>');
+parse('<< <a>1 <b>2 <c>3 >>', '<< <a>1 <b>2 <c>3 >>');
+parse('<< <a>1 >2 <c>3 >>', '<< <a>1 >2 <c>3 >>');
+
+parse('\'a\'\n\'b\'', 'ab'); // concatenation
+parse('a "comment" b', 'ab'); // bare string with comment
+parse('a "comment" \' b\' c', 'a bc'); // mixed types
+parse('"c"<<<"c"\'a\'"c">"c"value"c">>', '<< <a>value >>'); // comments
 
 function invalid(input) {
     try {
