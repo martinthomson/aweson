@@ -6,7 +6,7 @@ name = whitespace (bare-string / quoted-string) whitespace
 
 bare-string = [ bare-string-start *bare-string-char ]
 bare-string-start = %x00-21 / %x23-38 / %x3a-5f / %x61 / %x63-10ffff
-bare-string-char = unreserved / "'"
+bare-string-char = bare-string-start / "'"
 
 quoted-string = single-quote not-single-quote single-quote *(whitespace quoted)
 single-quote = "'"
